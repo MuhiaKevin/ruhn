@@ -1,9 +1,9 @@
+use clap::Parser;
+use clap_verbosity_flag::{Verbosity, WarnLevel};
 use reqwest::{Client, Error};
 use serde::{Deserialize, Serialize};
 use std::io::Write;
 use std::process::{Command, Stdio};
-use clap::Parser;
-use clap_verbosity_flag::{Verbosity, WarnLevel};
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
@@ -48,11 +48,7 @@ pub async fn run() {
 
     let stories = args.stories;
     display(fetch_stories(stories).await)
-    
 }
-
-
-
 
 pub async fn get_stories_data(num_of_stories: usize) -> Result<Vec<Story>, Error> {
     let mut stories: Vec<Story> = vec![];
@@ -68,8 +64,6 @@ pub async fn get_stories_data(num_of_stories: usize) -> Result<Vec<Story>, Error
 
     Ok(stories)
 }
-
-
 
 pub async fn get_num_of_id() -> Result<Vec<u32>, Error> {
     let stories_id: Vec<u32> = Client::new()
@@ -97,9 +91,6 @@ pub fn display(text: String) {
         eprintln!("Failed to execute command");
     }
 }
-
-
-
 
 pub async fn fetch_stories(num_stories: usize) -> String {
     let stories = get_stories_data(num_stories).await.unwrap();
