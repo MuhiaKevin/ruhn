@@ -30,7 +30,7 @@ pub struct Story {
     pub by: String,
 }
 
-pub async fn init() {
+pub async fn run() {
     let args = RuhnArgs::parse();
 
     let log_level = args
