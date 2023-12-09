@@ -13,7 +13,7 @@ struct RuhnArgs {
         short = 's',
         name = "stories",
         help = "Number of hackernews stories you want to read",
-        default_value = "10"
+        default_value = "60"
     )]
     stories: usize,
 
